@@ -397,6 +397,8 @@ a.logo:hover {
     display: block;
     margin-left: auto;
     /* Push to right */
+    z-index: 200;
+    padding: 10px;
   }
 
   .nav-links,
