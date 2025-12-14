@@ -248,7 +248,23 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const message = getFocusMessage(select.value);
-    result.innerHTML = `<p>${message}</p>`;
+    result.innerHTML = getFocusMessage(select.value);
   });
 });
+
+// =========================
+// MOBILE MENU TOGGLE
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.querySelector(".mobile-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const navTools = document.querySelector(".nav-tools");
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      navTools.classList.toggle("active");
+    });
+  }
+});
+

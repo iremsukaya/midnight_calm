@@ -366,15 +366,22 @@ a.logo:hover {
 }
 
 /* ===== RESPONSIVE ===== */
+/* ===== MOBILE TOGGLE ===== */
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .hero .container {
     grid-template-columns: 1fr;
     text-align: center;
     justify-items: center;
-  }
-
-  .nav-links {
-    display: none;
   }
 
   .hero h1 {
@@ -385,9 +392,63 @@ a.logo:hover {
     justify-content: center;
   }
 
-  /* Hide visual on very small screens if needed, or scale it */
-  .hero-visual {
-    height: 300px;
+  /* --- Navbar Mobile --- */
+  .mobile-toggle {
+    display: block;
+    margin-left: auto;
+    /* Push to right */
+  }
+
+  .nav-links,
+  .nav-tools {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(35, 38, 74, 0.95);
+    padding: 20px 0;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+
+  .nav-content {
+    flex-wrap: wrap;
+    /* Allow wrapping for menu items */
+    height: auto;
+    padding: 15px 20px;
+  }
+
+  /* Active State for JS Toggle */
+  .nav-links.active,
+  .nav-tools.active {
+    display: flex;
+  }
+
+  .nav-search input {
+    width: 200px;
+  }
+
+  /* --- Visuals on Mobile --- */
+  .hero-visual,
+  .about-visual,
+  .contact-visual {
+    height: 250px;
+    /* Reduced height */
+    transform: none !important;
+    /* Reset layout transforms */
+    margin-top: 20px;
+    scale: 0.8;
+    /* Shrink visuals */
+  }
+
+  /* Reset special page grids */
+  .page-hero .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .page-kicker {
+    justify-content: center;
   }
 }
 
