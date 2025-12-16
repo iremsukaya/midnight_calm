@@ -76,17 +76,43 @@
 
         <!-- SLEEP VISUAL (Sleeping Moon) -->
         <div class="sleep-visual" aria-hidden="true">
-          <div class="moon-box">
-            <div class="moon moon-sleep">
-              <div class="eye eye-left"></div>
-              <div class="eye eye-right"></div>
-              <div class="mouth"></div>
+          <!-- SHEEP VISUAL CONTAINER -->
+          <div class="sheep-box">
+            <!-- FENCE (Right Aligned) -->
+            <div class="fence">
+              <div class="post post-1"></div>
+              <div class="post post-2"></div>
+              <div class="rail rail-1"></div>
+              <div class="rail rail-2"></div>
             </div>
+
+            <!-- SHEEP (Starts Left) -->
+            <div class="sheep">
+              <div class="sheep-legs">
+                <div class="leg fl"></div>
+                <div class="leg fr"></div>
+              </div>
+              <div class="sheep-body">
+                <div class="fleece f1"></div>
+                <div class="fleece f2"></div>
+                <div class="fleece f3"></div>
+              </div>
+              <div class="sheep-head">
+                <div class="ear ear-left"></div>
+                <div class="ear ear-right"></div>
+                <div class="face">
+                  <div class="eye eye-left"></div>
+                  <div class="eye eye-right"></div>
+                  <div class="mouth"></div>
+                </div>
+                <div class="hair"></div>
+              </div>
+            </div>
+
+            <!-- SNORES -->
             <div class="zzz z1">Z</div>
             <div class="zzz z2">z</div>
             <div class="zzz z3">z</div>
-            <div class="star-small s1"></div>
-            <div class="star-small s2"></div>
           </div>
         </div>
       </div>
@@ -111,12 +137,20 @@
 
               <div class="field">
                 <label for="energy">My energy level is:</label>
-                <select id="energy" required>
-                  <option value="">Select...</option>
-                  <option value="low">Low (Tired)</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High (Energetic)</option>
-                </select>
+                <div class="custom-select-wrapper" id="customEnergySelect">
+                  <input type="hidden" id="energy" name="energy" value="">
+
+                  <div class="custom-select-trigger">
+                    <span>Select...</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+
+                  <div class="custom-options">
+                    <div class="option" data-value="low">Low (Tired)</div>
+                    <div class="option" data-value="medium">Medium</div>
+                    <div class="option" data-value="high">High (Energetic)</div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -124,20 +158,34 @@
             <div class="form-row" style="margin-top:-10px;">
               <div class="field" style="flex:1;">
                 <label for="sleepSound">Optional: Background Sound</label>
-                <select id="sleepSound">
-                  <option value="">None (Silent)</option>
-                  <optgroup label="Nature">
-                    <option value="rain">Rain Sounds</option>
-                    <option value="fire">Fireplace</option>
-                  </optgroup>
-                  <optgroup label="Noise Colors">
-                    <option value="white">White Noise</option>
-                    <option value="brown">Brown Noise</option>
-                  </optgroup>
-                  <optgroup label="Music">
-                    <option value="piano">Calm Piano</option>
-                  </optgroup>
-                </select>
+
+                <div class="custom-select-wrapper" id="customSleepSelect">
+                  <!-- Hidden Input to store the actual value for JS -->
+                  <input type="hidden" id="sleepSound" name="sleepSound" value="">
+
+                  <!-- Visible Trigger -->
+                  <div class="custom-select-trigger">
+                    <span>None (Silent)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+
+                  <!-- Dropdown Options -->
+                  <div class="custom-options">
+                    <div class="option" data-value="">None (Silent)</div>
+
+                    <div class="option-header">Nature</div>
+                    <div class="option" data-value="rain">Rain Sounds</div>
+                    <div class="option" data-value="fire">Fireplace</div>
+
+                    <div class="option-header">Noise Colors</div>
+                    <div class="option" data-value="white">White Noise</div>
+                    <div class="option" data-value="brown">Brown Noise</div>
+
+                    <div class="option-header">Music</div>
+                    <div class="option" data-value="piano">Calm Piano</div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -174,6 +222,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" class="back-to-top" aria-label="Yukarı Çık">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <script src="js/main.js?v=2"></script>
 </body>

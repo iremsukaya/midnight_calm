@@ -18,6 +18,11 @@
 </head>
 
 <body>
+  <div class="global-glow-container">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
   <!-- NAVBAR -->
   <header class="header">
     <nav class="navbar">
@@ -98,18 +103,27 @@
 
           <form id="focusForm" class="focus-form-wide">
             <div class="form-group">
-              <label for="focusType" class="sr-only">Choose Sound</label>
-              <select id="focusType" required>
-                <option value="">Select an atmosphere...</option>
-                <optgroup label="Music">
-                  <option value="lofi">Lo-fi Beats</option>
-                </optgroup>
-                <optgroup label="Ambience">
-                  <option value="office">Office Activity</option>
-                  <option value="library">Library Silence</option>
-                  <option value="cafe">Cafe Noise</option>
-                </optgroup>
-              </select>
+              <div class="custom-select-wrapper" id="customFocusSelect">
+                <!-- Hidden Input to store the actual value for JS -->
+                <input type="hidden" id="focusType" name="focusType" value="">
+
+                <!-- Visible Trigger -->
+                <div class="custom-select-trigger">
+                  <span>Select an atmosphere...</span>
+                  <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <!-- Dropdown Options -->
+                <div class="custom-options">
+                  <div class="option-header">Music</div>
+                  <div class="option" data-value="lofi">Lo-fi Beats</div>
+
+                  <div class="option-header">Ambience</div>
+                  <div class="option" data-value="office">Office Activity</div>
+                  <div class="option" data-value="library">Library Silence</div>
+                  <div class="option" data-value="cafe">Cafe Noise</div>
+                </div>
+              </div>
 
               <button class="btn primary big-btn" type="submit">
                 <i class="fa-solid fa-play"></i> Start Focus
@@ -145,6 +159,11 @@
       </div>
     </div>
   </footer>
+
+  <!-- BACK TO TOP BUTTON -->
+  <button id="backToTop" class="back-to-top" aria-label="Yukarı Çık">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <script src="js/main.js?v=2"></script>
 </body>
