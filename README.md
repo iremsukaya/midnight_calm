@@ -7,14 +7,18 @@ Midnight Calm is a serene web experience designed to help night-time workers and
 ### 🎯 Focus Mode
 A productivity dashboard designed to keep you in the flow.
 - **Ambience Selection**: Choose between "Lo-fi Beats", "Office Activity", "Library Silence", or "Cafe Noise".
-- **Dynamic Player**: Automatically loads the appropriate Spotify playlist based on your choice.
+- **Dynamic Player**: Automatically loads the appropriate soundscape based on your choice.
 - **Visuals**: Features a floating planet animation to accompany your session.
 
 ### 😴 Sleep Mode
 A gentle tool to help you wind down.
 - **Sleep Calculator**: Input your wake-up time and energy level to get a suggested bedtime.
-- **Sleep Sounds**: Play "Fireplace", "Calm Piano", or "Brown Noise" directly from the dashboard.
+- **Sleep Sounds**: 
+  - **Nature**: Rain Sounds, Fireplace
+  - **Noise Colors**: White Noise, Brown Noise
+  - **Music**: Calm Piano
 - **Visuals**: A sleeping moon character ("Zzz") sets the mood.
+- **Wellness Tips**: Quick tips for better sleep hygiene.
 
 ## Project Structure
 
@@ -22,8 +26,9 @@ A gentle tool to help you wind down.
 - **focus.html**: Focus dashboard.
 - **sleep.html**: Sleep calculator and sound player.
 - **about.html**: Project mission and details.
+- **contact.html**: Contact form.
 - **css/style.css**: Global styles, responsive grid, animations, and glassmorphism effects.
-- **js/main.js**: Logic for page transitions, sleep calculation, and dynamic Spotify embedding.
+- **js/main.js**: Logic for page transitions, sleep calculation, and dynamic Spotify/Sound embedding.
 
 ## Setup
 
@@ -41,4 +46,4 @@ A gentle tool to help you wind down.
 
 - **Icons**: [Font Awesome](https://fontawesome.com)
 - **Fonts**: Inter & Poppins (Google Fonts)
-- **Audio**: Curated playlists via Spotify Embeds.
+- **Audio**: Curated playlists via Spotify Embeds / Custom Audio.
