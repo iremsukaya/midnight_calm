@@ -232,6 +232,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy">
                 </iframe>
+                <div style="margin-top:10px; text-align:center;">
+                  <a href="https://open.spotify.com/playlist/${playlistId}" target="_blank" class="spotify-fallback" style="display:inline-block; margin-top:8px; font-size:0.9rem; color:var(--accent); text-decoration:none; border:1px solid rgba(255,255,255,0.2); padding:6px 14px; border-radius:20px; transition:0.3s;">
+                    <i class="fa-brands fa-spotify"></i> Open in Spotify
+                  </a>
+                </div>
              </div>
            `;
         }
@@ -276,6 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy">
           </iframe>
+          <div style="margin-top:10px; text-align:center;">
+             <a href="https://open.spotify.com/playlist/${selected.id}" target="_blank" class="spotify-fallback" style="display:inline-block; margin-top:8px; font-size:0.9rem; color:var(--accent); text-decoration:none; border:1px solid rgba(255,255,255,0.2); padding:6px 14px; border-radius:20px; transition:0.3s;">
+                <i class="fa-brands fa-spotify"></i> Open in Spotify
+             </a>
+          </div>
         </div>
       `;
     }

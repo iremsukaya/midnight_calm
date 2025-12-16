@@ -2105,191 +2105,284 @@ select {
   grid-column: 1 / -1;
 }
 
+/* Fix Hero Alignment for Focus Page (Requested by User) */
+.focus-hero .container {
+  grid-template-columns: 1fr 1fr;
+  /* Balance columns (was 1.2fr 0.8fr) */
+  gap: 20px;
+}
+
+.focus-hero .hero-content {
+  margin-left: auto;
+  /* Push text to the right (towards center) */
+  margin-right: 20px;
+  /* Gap from visual */
+  max-width: 500px;
+  /* Tighter width text */
+  text-align: left;
+  /* Keep left aligned text but in centered block */
+}
+
+.focus-hero .focus-visual {
+  padding-left: 40px;
+  /* Nudge Saturn visual right */
+}
+
 .spotify-grid {
   display: grid;
   gap: 16px;
-  /* End of Spotify Grid */
-}
 
-/* =========================
-   BACKGROUND STARS (Requested Feature)
-========================= */
-/* =========================
+  /* Fix Hero Alignment for Sleep Page (Requested by User) */
+  .sleep-hero .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .sleep-hero .hero-content {
+    margin-left: auto;
+    margin-right: 20px;
+    max-width: 500px;
+    text-align: left;
+    /* Align vertically center if needed, but grid handles this */
+  }
+
+  /* Slightly adjust sleep visual if needed */
+  .sleep-hero .sleep-visual {
+    padding-left: 20px;
+  }
+
+  /* Spotify Fallback Button Hover */
+  .spotify-fallback:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent) !important;
+    transform: translateY(-2px);
+  }
+
+  =========================*/
+  /* =========================
    MOBILE RESPONSIVENESS FIXES
    ========================= */
 
-/* Mobile Menu Toggle Button (Hidden on Desktop) */
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-main);
-  font-size: 1.5rem;
-  cursor: pointer;
-  z-index: 101;
-}
-
-@media (max-width: 900px) {
-
-  /* NAVBAR */
+  /* Mobile Menu Toggle Button (Hidden on Desktop) */
   .mobile-toggle {
-    display: block;
-    /* Show toggle */
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: rgba(35, 38, 74, 0.95);
-    backdrop-filter: blur(10px);
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 0;
-    gap: 30px;
-    transform: translateY(-150%);
-    /* Hidden top */
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-    /* Slide down */
-  }
-
-  .nav-tools {
     display: none;
-    /* Hide search/social on mobile to save space */
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 101;
   }
 
-  .nav-tools.active {
-    /* Optional: if we wanted to show specific tools */
-    display: none;
+  @media (max-width: 900px) {
+
+    /* NAVBAR */
+    .mobile-toggle {
+      display: block;
+      /* Show toggle */
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(35, 38, 74, 0.95);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      gap: 30px;
+      transform: translateY(-150%);
+      /* Hidden top */
+      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.active {
+      transform: translateY(0);
+      /* Slide down */
+    }
+
+    .nav-tools {
+      display: none;
+      /* Hide search/social on mobile to save space */
+    }
+
+    .nav-tools.active {
+      /* Optional: if we wanted to show specific tools */
+      display: none;
+    }
+
+    /* HERO SECTIONS */
+    .hero .container,
+    .hero-content,
+    .page-hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+    }
+
+    .hero-content {
+      margin: 0 auto;
+      margin-bottom: 40px;
+      /* Space before visual */
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      /* Smaller H1 */
+    }
+
+    .page-kicker {
+      justify-content: center;
+    }
+
+    /* VISUALS SCALING */
+    /* Scale down for small screens */
+    /* Contact & About: Shift Right */
+    .contact-visual,
+    .about-visual {
+      height: 400px;
+      width: 100%;
+      transform: translateX(90px) !important;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Home & Sleep: CENTERED (Reset shift) */
+    .hero-visual,
+    .sleep-visual {
+      height: 350px;
+      width: 100%;
+      transform: none !important;
+      /* Forces perfect centering */
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .moon-box {
+      transform: scale(0.9);
+    }
+
+    .sheep-box {
+      transform: scale(0.85);
+      transform-origin: center bottom;
+    }
+
+    .hero-envelope,
+    .hero-star {
+      font-size: 10rem;
+      /* Slightly smaller but still big */
+    }
+
+    /* GRIDS TO SINGLE COLUMN */
+    .feature-grid,
+    .steps,
+    .about-grid,
+    .contact-grid,
+    .sleep-grid,
+    .focus-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .feature-card,
+    .about-card,
+    .contact-card {
+      text-align: center;
+      align-items: center;
+    }
+
+    /* Reset contact items flex for center alignment if needed */
+    .contact-item {
+      justify-content: center;
+      /* Center text */
+      text-align: left;
+      /* Keep internal text left aligned but block centered */
+      display: inline-flex;
+      width: 100%;
+    }
+
+    /* Sleep Form Mobile */
+    .sleep-form-wide .form-row {
+      flex-direction: column;
+    }
+
+    /* Sleep Hero Mobile Override */
+    .sleep-hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 30px;
+    }
+
+    .sleep-hero .hero-content {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .sleep-hero .sleep-visual {
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+      transform: none;
+    }
+
+    /* Focus Hero Mobile Override */
+    .focus-hero .container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 30px;
+    }
+
+    .focus-hero .hero-content {
+      margin-left: auto;
+      margin-right: auto;
+      /* Ensure BOTH are auto for centering */
+      margin-bottom: 20px;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .focus-hero .focus-visual {
+      padding-left: 0;
+      /* Remove padding */
+      display: flex;
+      justify-content: center;
+      transform: none;
+      /* Ensure no offsets */
+    }
+
+    .planet-box {
+      transform: scale(0.85);
+      /* Scale down planet for mobile */
+      margin: 0 auto;
+    }
   }
 
-  /* HERO SECTIONS */
-  .hero .container,
-  .hero-content,
-  .page-hero .container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
-  }
+  @media (max-width: 480px) {
 
-  .hero-content {
-    margin: 0 auto;
-    margin-bottom: 40px;
-    /* Space before visual */
-  }
+    /* Extra Small Screens */
+    .hero h1 {
+      font-size: 2rem;
+    }
 
-  .hero h1 {
-    font-size: 2.5rem;
-    /* Smaller H1 */
-  }
+    .moon-box {
+      transform: scale(0.65);
+    }
 
-  .page-kicker {
-    justify-content: center;
-  }
+    .sheep-box {
+      transform: scale(0.6);
+    }
 
-  /* VISUALS SCALING */
-  /* Scale down for small screens */
-  /* Contact & About: Shift Right */
-  .contact-visual,
-  .about-visual {
-    height: 400px;
-    width: 100%;
-    transform: translateX(90px) !important;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .container {
+      padding: 0 16px;
+    }
   }
-
-  /* Home & Sleep: CENTERED (Reset shift) */
-  .hero-visual,
-  .sleep-visual {
-    height: 350px;
-    width: 100%;
-    transform: none !important;
-    /* Forces perfect centering */
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .moon-box {
-    transform: scale(0.9);
-  }
-
-  .sheep-box {
-    transform: scale(0.85);
-    transform-origin: center bottom;
-  }
-
-  .hero-envelope,
-  .hero-star {
-    font-size: 10rem;
-    /* Slightly smaller but still big */
-  }
-
-  /* GRIDS TO SINGLE COLUMN */
-  .feature-grid,
-  .steps,
-  .about-grid,
-  .contact-grid,
-  .sleep-grid,
-  .focus-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .feature-card,
-  .about-card,
-  .contact-card {
-    text-align: center;
-    align-items: center;
-  }
-
-  /* Reset contact items flex for center alignment if needed */
-  .contact-item {
-    justify-content: center;
-    /* Center text */
-    text-align: left;
-    /* Keep internal text left aligned but block centered */
-    display: inline-flex;
-    width: 100%;
-  }
-
-  /* Sleep Form Mobile */
-  .sleep-form-wide .form-row {
-    flex-direction: column;
-  }
-
-  /* Buttons */
-  .hero-buttons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
-
-  /* Extra Small Screens */
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .moon-box {
-    transform: scale(0.65);
-  }
-
-  .sheep-box {
-    transform: scale(0.6);
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-}
